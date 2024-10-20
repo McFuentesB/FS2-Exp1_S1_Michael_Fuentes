@@ -1,0 +1,100 @@
+/* Variables CSS */
+:root {
+    --primary-color: #4CAF50;
+    --secondary-color: #f4f4f4;
+    --font-color: #333;
+    --font-size: 16px;
+}
+
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    color: var(--font-color);
+    background-color: var(--secondary-color);
+}
+
+h1, h2, h3 {
+    color: var(--primary-color);
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+    background-color: var(--primary-color);
+    padding: 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: var(--font-size);
+}
+
+.juego {
+    width: 300px;  /* Establece un ancho fijo más pequeño para cada cuadro */
+    border: 2px solid var(--primary-color); /* Borde del cuadro */
+    padding: 10px; /* Espaciado interno */
+    box-sizing: border-box; /* Incluir padding y border dentro del ancho del cuadro */
+    display: flex;
+    flex-direction: column; /* Coloca los elementos uno debajo del otro */
+    justify-content: space-between; /* Distribuye espacio entre los elementos internos */
+    text-align: center; /* Centra el texto */
+    background-color: #f9f9f9; /* Color de fondo */
+    transition: transform 0.3s ease; /* Transición al hacer hover */
+}
+
+.contenedor-juegos {
+    display: flex;
+    justify-content: flex-start; /* Alinea los cuadros desde la izquierda */
+    flex-wrap: wrap; /* Permite que los cuadros se ajusten en diferentes filas si no caben */
+    gap: 20px; /* Espacio entre los cuadros */
+}
+
+
+
+
+.juego img {
+    width: 100%; /* La imagen ocupa todo el ancho del cuadro */
+    height: auto; /* La altura se ajusta automáticamente */
+    object-fit: cover; /* Asegura que la imagen se ajuste sin deformarse */
+}
+
+.juego:hover {
+    transform: scale(1.05); /* Agranda el cuadro al pasar el mouse */
+}
+
+/* Animaciones */
+@keyframes aparecer {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.juego {
+    animation: aparecer 1s ease-in;
+}
+
+.juego h3 {
+    font-size: 1.2em;
+    margin: 10px 0 5px 0;
+}
+
+.juego p {
+    font-size: 1em;
+    color: #666;
+    flex-grow: 1; /* Permite que el párrafo crezca si es necesario */
+}
+
+/* Estilos responsivos */
+@media (max-width: 900px) {
+    .juego {
+        width: calc(50% - 20px); /* En pantallas medianas, dos juegos por fila */
+    }
+}
+
+@media (max-width: 600px) {
+    .juego {
+        width: 100%; /* En pantallas pequeñas, un juego por fila */
+    }
+}
+
